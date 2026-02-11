@@ -1,0 +1,20 @@
+{
+  "welcome": "ಸ್ವಾಗತ",
+  "login": "ಲಾಗಿನ್ ಮಾಡಿ",
+  "register": "ನೋಂದಣಿ ಮಾಡಿ",
+  "logout": "ಲಾಗ್ ಔಟ್",
+  "submit_complaint": "ದೂರು ಸಲ್ಲಿಸಿ",
+  "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+  "status": "ದೂರು ಸ್ಥಿತಿ",
+  "history": "ದೂರು ಇತಿಹಾಸ",
+  "feedback": "ಪ್ರತಿಕ್ರಿಯೆ",
+  "name": "ಹೆಸರು",
+  "email": "ಇಮೇಲ್",
+  "password": "ಪಾಸ್ವರ್ಡ್",
+  "confirm_password": "ಪಾಸ್ವರ್ಡ್ ಖಚಿತಪಡಿಸಿ",
+  "complaint_type": "ದೂರು ಪ್ರಕಾರ",
+  "description": "ವಿವರಣೆ",
+  "submit": "ಸಲ್ಲಿಸು",
+  "cancel": "ರದ್ದುಮಾಡಿ",
+  "update_status": "ಸ್ಥಿತಿ ನವೀಕರಿಸಿ"
+}

@@ -1,0 +1,20 @@
+{
+  "welcome": "स्वागत है",
+  "login": "लॉगिन",
+  "register": "रजिस्टर",
+  "logout": "लॉगआउट",
+  "submit_complaint": "शिकायत जमा करें",
+  "dashboard": "डैशबोर्ड",
+  "status": "शिकायत स्थिति",
+  "history": "शिकायत इतिहास",
+  "feedback": "प्रतिक्रिया",
+  "name": "नाम",
+  "email": "ईमेल",
+  "password": "पासवर्ड",
+  "confirm_password": "पासवर्ड की पुष्टि करें",
+  "complaint_type": "शिकायत का प्रकार",
+  "description": "विवरण",
+  "submit": "सबमिट करें",
+  "cancel": "रद्द करें",
+  "update_status": "स्थिति अपडेट करें"
+}

@@ -1,0 +1,20 @@
+{
+  "welcome": "Welcome",
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "submit_complaint": "Submit Complaint",
+  "dashboard": "Dashboard",
+  "status": "Complaint Status",
+  "history": "Complaint History",
+  "feedback": "Feedback",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "complaint_type": "Complaint Type",
+  "description": "Description",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "update_status": "Update Status"
+}
