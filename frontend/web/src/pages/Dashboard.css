@@ -1,0 +1,114 @@
+/* ===== Layout ===== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 40px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.logout {
+  margin-top: auto;
+  color: #ff4d4d;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* ===== Topbar ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+}
+
+/* ===== Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ================= LIGHT MODE ================= */
+body.light .sidebar {
+  background: #2563eb;
+  color: white;
+}
+
+body.light .main-content {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+body.light .dashboard-card {
+  background: white;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* ================= DARK MODE ================= */
+body.dark .sidebar {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark .main-content {
+  background: #1e293b;
+  color: white;
+}
+
+body.dark .dashboard-card {
+  background: #334155;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}

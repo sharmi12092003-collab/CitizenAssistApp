@@ -1,0 +1,62 @@
+/* Smooth transition */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.4s ease;
+}
+
+/* ===== LIGHT THEME ===== */
+body.light {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #222;
+}
+
+/* ===== DARK THEME ===== */
+body.dark {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #ffffff;
+}
+
+/* Card style (for login / forms) */
+.card {
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  margin: 100px auto;
+  text-align: center;
+  transition: 0.4s;
+}
+
+/* Light card */
+body.light .card {
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Dark card */
+body.dark .card {
+  background: #1f2937;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+body.light .theme-toggle {
+  background: #1e3c72;
+  color: white;
+}
+
+body.dark .theme-toggle {
+  background: #facc15;
+  color: black;
+}
