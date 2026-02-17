@@ -5,17 +5,28 @@ body {
   transition: all 0.4s ease;
 }
 
-/* ===== LIGHT THEME ===== */
+/* ========== LIGHT THEME ========== */
 body.light {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  color: #222;
+  --bg-main: #f4f7fc;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --accent: #0072ff;
+  --border: #e0e0e0;
 }
 
-/* ===== DARK THEME ===== */
+/* ========== DARK THEME ========== */
 body.dark {
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: #ffffff;
+  --bg-main: #0f172a;
+  --bg-sidebar: #1e293b;
+  --bg-card: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --border: #334155;
 }
+
 
 /* Card style (for login / forms) */
 .card {

@@ -1,20 +1,50 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Auth.css";
 
 function Login() {
   const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [role, setRole] = useState("citizen");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    localStorage.setItem("userRole", role);
+    try {
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          role,
+        }),
+      });
 
-    if (role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/dashboard");
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        return;
+      }
+
+      // Save real data from DB
+      localStorage.setItem("user_id", data.user_id);
+      localStorage.setItem("userRole", data.role);
+
+      if (data.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/dashboard");
+      }
+
+    } catch (error) {
+      console.log(error);
+      alert("Server error");
     }
   };
 
@@ -27,41 +57,50 @@ function Login() {
 
         <form onSubmit={handleLogin} className="login-form">
 
-          <input type="text" placeholder="Username" required />
-          <input type="password" placeholder="Password" required />
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
 
-          {/* 🔥 Role Selection */}
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {/* Role Selection */}
           <div className="role-container">
 
             <div
               className={`role-card ${role === "citizen" ? "active-citizen" : ""}`}
               onClick={() => setRole("citizen")}
             >
-              👤 Citizen
+              Citizen
             </div>
 
             <div
-              className={`role-card admin-role ${role === "admin" ? "active-admin" : ""}`}
+              className={`role-card ${role === "admin" ? "active-admin" : ""}`}
               onClick={() => setRole("admin")}
             >
-              🛡 Admin
+              Admin
             </div>
 
           </div>
 
-          <button
-            type="submit"
-            className={`login-btn ${role === "admin" ? "admin-btn" : ""}`}
-          >
+          <button type="submit" className="login-btn">
             Login as {role}
           </button>
 
+          <p>
+            Don’t have account? <Link to="/register">Register</Link>
+          </p>
+
         </form>
-
-        <p className="register-text">
-          Don’t have account? <Link to="/register">Register</Link>
-        </p>
-
       </div>
     </div>
   );

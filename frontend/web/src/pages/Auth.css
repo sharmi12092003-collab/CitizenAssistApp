@@ -1,35 +1,33 @@
-/* Background */
 .login-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: var(--bg-auth);
   font-family: "Segoe UI", sans-serif;
+  transition: 0.3s ease;
 }
 
-/* Card */
 .login-card {
   width: 350px;
   padding: 35px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background: var(--card-auth);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   text-align: center;
-  color: #fff;
+  color: var(--text-auth);
+  transition: 0.3s ease;
 }
 
 /* Titles */
 .app-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .login-title {
   margin-bottom: 20px;
-  font-weight: 400;
 }
 
 /* Inputs */
@@ -40,13 +38,8 @@
   border-radius: 8px;
   border: none;
   outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 14px;
-}
-
-.login-form input::placeholder {
-  color: #ddd;
+  background: var(--input-bg);
+  color: var(--text-auth);
 }
 
 /* Role Selection */
@@ -63,31 +56,24 @@
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s ease;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--input-bg);
 }
 
 .role-card:hover {
   transform: translateY(-3px);
 }
 
-/* Active Citizen */
 .active-citizen {
-  background: rgba(0, 198, 255, 0.3);
-  box-shadow: 0 0 12px rgba(0, 198, 255, 0.6);
+  background: #0072ff;
+  color: white;
 }
 
-/* Admin Card */
-.admin-role {
-  background: rgba(255, 80, 80, 0.15);
-}
-
-/* Active Admin */
 .active-admin {
-  background: rgba(255, 80, 80, 0.4);
-  box-shadow: 0 0 12px rgba(255, 80, 80, 0.6);
+  background: #ff4d4d;
+  color: white;
 }
 
-/* Login Button */
+/* Button */
 .login-btn {
   width: 100%;
   padding: 12px;
@@ -95,31 +81,24 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  background: #0072ff;
   color: white;
   transition: 0.3s;
 }
 
-.login-btn:hover {
-  transform: scale(1.05);
-}
-
-/* Admin Button Style */
 .admin-btn {
-  background: linear-gradient(90deg, #ff512f, #dd2476);
+  background: #ff4d4d;
 }
 
-/* Register */
+.login-btn:hover {
+  opacity: 0.9;
+}
+
 .register-text {
   margin-top: 15px;
-  font-size: 14px;
 }
 
 .register-text a {
-  color: #00c6ff;
+  color: #0072ff;
   text-decoration: none;
-}
-
-.register-text a:hover {
-  text-decoration: underline;
 }

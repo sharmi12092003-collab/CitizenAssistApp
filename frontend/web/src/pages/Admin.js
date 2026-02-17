@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 
 function Admin() {
   const navigate = useNavigate();
 
+  const [complaints, setComplaints] = useState([
+    { id: 101, user: "Ravi", dept: "Water", status: "Pending" },
+    { id: 102, user: "Anita", dept: "Electricity", status: "Resolved" },
+    { id: 103, user: "Kumar", dept: "Roads", status: "In Progress" },
+  ]);
+
+  const [search, setSearch] = useState("");
+
   const handleLogout = () => {
-    localStorage.removeItem("userRole");  // ✅ make consistent
+    localStorage.removeItem("userRole");
     navigate("/");
   };
+
+  const updateStatus = (id) => {
+    const updated = complaints.map((c) =>
+      c.id === id ? { ...c, status: "Resolved" } : c
+    );
+    setComplaints(updated);
+  };
+
+  const filteredComplaints = complaints.filter((c) =>
+    c.user.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="admin-container">
@@ -16,51 +35,52 @@ function Admin() {
       {/* Sidebar */}
       <div className="admin-sidebar">
         <h2 className="logo">Admin Panel</h2>
-
         <ul>
           <li className="active">📊 Overview</li>
           <li>📄 Manage Complaints</li>
           <li>👥 Users</li>
           <li>⚙ Settings</li>
-
-          <li className="logout" onClick={handleLogout}>
-            🚪 Logout
-          </li>
+          <li className="logout" onClick={handleLogout}>🚪 Logout</li>
         </ul>
       </div>
 
-      {/* Main Content */}
+      {/* Main */}
       <div className="admin-main">
 
         <div className="admin-topbar">
           <h1>Administrator Dashboard</h1>
         </div>
 
+        {/* Stats */}
         <div className="admin-cards">
-          <div className="admin-card total">
+          <div className="admin-card">
             <h3>Total Complaints</h3>
-            <p>248</p>
+            <p>{complaints.length}</p>
           </div>
 
-          <div className="admin-card pending">
+          <div className="admin-card">
             <h3>Pending</h3>
-            <p>64</p>
+            <p>{complaints.filter(c => c.status === "Pending").length}</p>
           </div>
 
-          <div className="admin-card resolved">
+          <div className="admin-card">
             <h3>Resolved</h3>
-            <p>184</p>
-          </div>
-
-          <div className="admin-card users">
-            <h3>Total Users</h3>
-            <p>120</p>
+            <p>{complaints.filter(c => c.status === "Resolved").length}</p>
           </div>
         </div>
 
-        <div className="admin-table">
-          <h2>Complaint Management</h2>
+        {/* Search */}
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search by user..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
+        {/* Table */}
+        <div className="admin-table">
           <table>
             <thead>
               <tr>
@@ -73,36 +93,26 @@ function Admin() {
             </thead>
 
             <tbody>
-              <tr>
-                <td>#201</td>
-                <td>Ravi</td>
-                <td>Water</td>
-                <td><span className="badge pending">Pending</span></td>
-                <td>
-                  <button className="btn-resolve">Resolve</button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>#202</td>
-                <td>Anita</td>
-                <td>Electricity</td>
-                <td><span className="badge resolved">Resolved</span></td>
-                <td>
-                  <button className="btn-view">View</button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>#203</td>
-                <td>Kumar</td>
-                <td>Roads</td>
-                <td><span className="badge inprogress">In Progress</span></td>
-                <td>
-                  <button className="btn-progress">Update</button>
-                </td>
-              </tr>
+              {filteredComplaints.map((c) => (
+                <tr key={c.id}>
+                  <td>{c.id}</td>
+                  <td>{c.user}</td>
+                  <td>{c.dept}</td>
+                  <td>{c.status}</td>
+                  <td>
+                    {c.status !== "Resolved" && (
+                      <button
+                        className="resolve-btn"
+                        onClick={() => updateStatus(c.id)}
+                      >
+                        Mark Resolved
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
             </tbody>
+
           </table>
         </div>
 
